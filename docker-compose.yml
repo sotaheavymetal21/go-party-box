@@ -6,9 +6,9 @@ services:
     build:
       context: .
       dockerfile: containers/go/Dockerfile
-    command: sh -c "/usr/local/bin/entrypoint.sh"
     env_file:
       - .env
+    platform: linux/amd64
     volumes:
       - ./application:/code/
       - ./static:/static
