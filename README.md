@@ -1,2 +1,2 @@
 # surge-eruption-vortex-explosion
-お試し玩具箱
+急上昇噴火渦巻爆発
