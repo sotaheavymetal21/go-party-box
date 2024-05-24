@@ -1,10 +1,10 @@
 FROM --platform=linux/x86_64 golang:1.20
 
-WORKDIR /usr/local/go/src/surge_eruption_vortex_explosion/
+WORKDIR /usr/local/go/src/go-party-box/
 
 RUN go install github.com/go-delve/delve/cmd/dlv@latest && \
   go install github.com/cosmtrek/air@v1.42.0
 
-COPY application/. /usr/local/go/src/surge_eruption_vortex_explosion/
+COPY application/. /usr/local/go/src/go-party-box/
 
 RUN go mod download
