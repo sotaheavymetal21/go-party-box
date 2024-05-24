@@ -1,9 +1,10 @@
-package main
+// handlers/weather_handler.go
+
+package handlers
 
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -14,12 +15,7 @@ type WeatherResponse struct {
 	} `json:"weather"`
 }
 
-func main() {
-	http.HandleFunc("/weather", weatherHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
-}
-
-func weatherHandler(w http.ResponseWriter, r *http.Request) {
+func WeatherHandler(w http.ResponseWriter, r *http.Request) {
 	city := r.URL.Query().Get("city")
 	apiKey := "YOUR_API_KEY"
 	url := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", city, apiKey)
