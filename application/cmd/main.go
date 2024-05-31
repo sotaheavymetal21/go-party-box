@@ -5,10 +5,10 @@ package main
 
 // 必要なパッケージのインポート
 import (
+	"go-party-box/handlers"
 	"log"
 	"net/http"
-
-	"github.com/sotaheavymetal21/go-party-box/application/handlers" // 自作パッケージのインポート
+	// 自作パッケージのインポート
 )
 
 // main 関数の定義
