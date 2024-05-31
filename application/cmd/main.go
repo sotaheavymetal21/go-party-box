@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	"go-party-box/handlers" // 自作パッケージのインポート
+	"github.com/sotaheavymetal21/go-party-box/application/handlers" // 自作パッケージのインポート
 )
 
 // main 関数の定義
