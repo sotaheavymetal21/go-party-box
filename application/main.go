@@ -4,22 +4,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/sotaheavymetal21/go-party-box/routers"
 )
 
 func main() {
-	r := mux.NewRouter()
+	// ルーターを初期化
+	r := routers.NewRouter()
 
-	r.HandleFunc("/", rootHandler).Methods(http.MethodGet)
-	r.HandleFunc("/hello", helloHandler).Methods(http.MethodGet) // /hello エンドポイントを追加
-
+	// サーバーをポート 8000 で起動
+	fmt.Println("Starting server on port 8000...")
 	http.ListenAndServe(":8000", r)
-}
-
-func rootHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Root Handler")
-}
-
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "🐰Hello World🐰")
 }
