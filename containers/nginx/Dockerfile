@@ -1,6 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.21-alpine
 
-RUN rm -f /etc/nginx/conf.d/*
-COPY ./containers/nginx/nginx.conf /etc/nginx/conf.d/
-
-CMD /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY containers/nginx/nginx.local.conf /etc/nginx/conf.d

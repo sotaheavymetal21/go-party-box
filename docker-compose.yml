@@ -6,21 +6,18 @@ services:
     build:
       context: .
       dockerfile: containers/go/Dockerfile
-    env_file:
-      - .env
-    platform: linux/amd64
     volumes:
-      - ./cmd:/code/
-      - ./static:/static
+      - ./application:/usr/local/go/src/go-party-box
     ports:
       - "8000:8000"
-      - "8080:8080"
+    command: air -c .air.toml
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
     networks:
-      - app_web
-      - app_db
+      - proxynet
   db:
     container_name: db
     build:
@@ -33,32 +30,25 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    env_file:
-      - .env
+    environment:
+      - POSTGRES_NAME
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
     ports:
-      - "5432:5432"
+      - "5432:5432" # デバッグ用
     networks:
-      - app_db
-
-  nginx:
-    container_name: web
-    build:
-      context: .
-      dockerfile: containers/nginx/Dockerfile
-    volumes:
-      - ./static:/static
+      - proxynet
+  mail:
+    container_name: mail
+    image: schickling/mailcatcher
     ports:
-      - 80:80
-    depends_on:
-      - app
+      - "1080:1080"
+      - "1025:1025"
     networks:
-      - app_web
-
+      - proxynet
+networks:
+  proxynet:
+    name: testnet
+    external: false
 volumes:
   db_data:
-  static:
-
-
-networks:
-  app_web:
-  app_db:
