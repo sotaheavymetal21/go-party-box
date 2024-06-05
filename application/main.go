@@ -8,10 +8,8 @@ import (
 )
 
 func main() {
-	// ルーターを初期化
-	r := routers.NewRouter()
-
-	// サーバーをポート 8000 で起動
-	fmt.Println("Starting server on port 8000...")
-	http.ListenAndServe(":8000", r)
-}
+	items := []models.Item{
+		{ID: 1, Name: "バッタ", Price: 1000, Description: "食用", SoldOut: false},
+		{ID: 2, Name: "カナブン", Price: 5000, Description: "観賞用", SoldOut: true},
+		{ID: 3, Name: "どんぐり", Price: 20000, Description: "投擲用", SoldOut: true},
+	}
