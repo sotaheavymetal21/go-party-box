@@ -1,13 +1,13 @@
 package main
 
-import {
-	"github.com/sotaheavymetal21/go-party-box/models"
-}
+import (
+	"github.com/gin-gonic/gin"
+)
+
 func main() {
-	// itemsは、商品データのスライスです。
-	items := []models.Item{
-		{ID: 1, Name: "バッタ", Price: 1000, Description: "食用", SoldOut: false},
-		{ID: 2, Name: "カナブン", Price: 5000, Description: "観賞用", SoldOut: true},
-		{ID: 3, Name: "どんぐり", Price: 20000, Description: "投擲用", SoldOut: true},
-	}
+	r := gin.Default()
+	r.GET("/sample", func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "rust こそしこう"})
+	})
+	r.Run() // Start the server on default port 8080
 }

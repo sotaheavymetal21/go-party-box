@@ -1,6 +1,6 @@
 module github.com/sotaheavymetal21/go-party-box
 
-go 1.21.1
+go 1.21
 
 require (
 	github.com/gin-contrib/cors v1.7.2
