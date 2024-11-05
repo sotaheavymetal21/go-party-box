@@ -1,13 +1,11 @@
 package main
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "fmt"
 
+func bazz() {
+	fmt.Println("Bazz")
+}
 func main() {
-	r := gin.Default()
-	r.GET("/sample", func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "rust こそしこう"})
-	})
-	r.Run() // Start the server on default port 8080
+	bazz()
+	fmt.Println("Hello world!")
 }
