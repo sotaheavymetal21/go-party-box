@@ -1,14 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func init() {
-	fmt.Println("Init")
-}
-func bazz() {
-	fmt.Println("Bazz")
-}
 func main() {
-	bazz()
-	fmt.Println("Hello world!")
+	fmt.Println("hello world", time.Now())
 }
