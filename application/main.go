@@ -123,33 +123,57 @@
 // 	fmt.Println(!false) // true
 // }
 
+// package main
+
+// import (
+// 	"fmt"
+// 	"strconv"
+// )
+
+// func main() {
+// 	// 整数 x を定義して float64 に型変換し、変数 xx に代入
+// 	var x int = 1
+// 	xx := float64(x)
+// 	// xx の型(%T)、値(%v)、浮動小数点形式(%f)で出力
+// 	fmt.Printf("%T %v %f\n", xx, xx, xx)
+
+// 	// 浮動小数点数 y を定義して int に型変換し、変数 yy に代入
+// 	var y float64 = 1.2
+// 	yy := int(y)
+// 	// yy の型(%T)、値(%v)、整数形式(%d)で出力
+// 	fmt.Printf("%T %v %d\n", yy, yy, yy)
+
+// 	// 文字列 s を整数に変換し、変数 i に代入
+// 	var s string = "14"
+// 	i, _ := strconv.Atoi(s)
+// 	// i の型(%T)、値(%v)で出力
+// 	fmt.Printf("%T %v\n", i, i)
+
+// 	// 文字列 h の先頭文字を取得し、文字として出力
+// 	h := "Hello World"
+// 	fmt.Println(string(h[0]))
+// }
+
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func main() {
-	// 整数 x を定義して float64 に型変換し、変数 xx に代入
-	var x int = 1
-	xx := float64(x)
-	// xx の型(%T)、値(%v)、浮動小数点形式(%f)で出力
-	fmt.Printf("%T %v %f\n", xx, xx, xx)
+	// 固定長配列 a を定義し、要素に値を代入
+	var a [2]int
+	a[0] = 100
+	a[1] = 200
+	fmt.Println(a) // 配列 a の内容を出力
 
-	// 浮動小数点数 y を定義して int に型変換し、変数 yy に代入
-	var y float64 = 1.2
-	yy := int(y)
-	// yy の型(%T)、値(%v)、整数形式(%d)で出力
-	fmt.Printf("%T %v %d\n", yy, yy, yy)
+	/*
+		// 固定長配列 b を定義し、append を試みる（エラーが発生する）
+		var b [2]int = [2]int{100, 200}
+		b = append(b, 300) // append はスライス専用のため、このコードはコンパイルエラーとなる
+		fmt.Println(b)
+	*/
 
-	// 文字列 s を整数に変換し、変数 i に代入
-	var s string = "14"
-	i, _ := strconv.Atoi(s)
-	// i の型(%T)、値(%v)で出力
-	fmt.Printf("%T %v\n", i, i)
-
-	// 文字列 h の先頭文字を取得し、文字として出力
-	h := "Hello World"
-	fmt.Println(string(h[0]))
+	// スライス b を定義し、要素を追加
+	var b []int = []int{100, 200}
+	b = append(b, 300) // スライス b に 300 を追加
+	fmt.Println(b)     // スライス b の内容を出力
 }
