@@ -64,28 +64,38 @@
 
 // }
 
+// package main
+
+// import (
+// 	"fmt"
+// 	"strings"
+// )
+
+// func main() {
+// 	fmt.Println("Hello World")            // "Hello World" をそのまま出力
+// 	fmt.Println("Hello " + "World")       // 文字列の結合を出力
+// 	fmt.Println(string("Hello World"[0])) // "Hello World" の先頭文字 'H' を出力
+
+// 	var s string = "Hello World" // 変数 s に "Hello World" を代入
+
+// 	s = strings.Replace(s, "H", "X", 1) // s 内の "H" を "X" に置き換える（最初の 1 つだけ）
+// 	fmt.Println(s)                      // 置き換え後の文字列 "Xello World" を出力
+
+// 	fmt.Println(strings.Contains(s, "World")) // s に "World" が含まれているかをチェックし、結果 (true) を出力
+
+// 	fmt.Println(`Test
+// 		Test`) // バッククォートで囲んだ文字列をそのまま出力（改行含む）
+
+// 	fmt.Println("\"") // ダブルクォートを出力（エスケープシーケンスを使用）
+// 	fmt.Println(`"`)  // バッククォートで囲んだダブルクォートを出力
+// }
+
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func main() {
-	fmt.Println("Hello World")            // "Hello World" をそのまま出力
-	fmt.Println("Hello " + "World")       // 文字列の結合を出力
-	fmt.Println(string("Hello World"[0])) // "Hello World" の先頭文字 'H' を出力
-
-	var s string = "Hello World" // 変数 s に "Hello World" を代入
-
-	s = strings.Replace(s, "H", "X", 1) // s 内の "H" を "X" に置き換える（最初の 1 つだけ）
-	fmt.Println(s)                      // 置き換え後の文字列 "Xello World" を出力
-
-	fmt.Println(strings.Contains(s, "World")) // s に "World" が含まれているかをチェックし、結果 (true) を出力
-
-	fmt.Println(`Test
-		Test`) // バッククォートで囲んだ文字列をそのまま出力（改行含む）
-
-	fmt.Println("\"") // ダブルクォートを出力（エスケープシーケンスを使用）
-	fmt.Println(`"`)  // バッククォートで囲んだダブルクォートを出力
+	var t, f bool = true, false
+	fmt.Printf("%T %v %t\n", t, 1, t)
+	fmt.Printf("%T %v %t\n", f, 0, f)
 }
