@@ -154,26 +154,57 @@
 // 	fmt.Println(string(h[0]))
 // }
 
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	// 固定長配列 a を定義し、要素に値を代入
+// 	var a [2]int
+// 	a[0] = 100
+// 	a[1] = 200
+// 	fmt.Println(a) // 配列 a の内容を出力
+
+// 	/*
+// 		// 固定長配列 b を定義し、append を試みる（エラーが発生する）
+// 		var b [2]int = [2]int{100, 200}
+// 		b = append(b, 300) // append はスライス専用のため、このコードはコンパイルエラーとなる
+// 		fmt.Println(b)
+// 	*/
+
+// 	// スライス b を定義し、要素を追加
+// 	var b []int = []int{100, 200}
+// 	b = append(b, 300) // スライス b に 300 を追加
+// 	fmt.Println(b)     // スライス b の内容を出力
+// }
+
 package main
 
 import "fmt"
 
 func main() {
-	// 固定長配列 a を定義し、要素に値を代入
-	var a [2]int
-	a[0] = 100
-	a[1] = 200
-	fmt.Println(a) // 配列 a の内容を出力
+	// スライス n を初期化
+	n := []int{1, 2, 3, 4, 5, 6}
+	fmt.Println(n)      // スライス全体を出力
+	fmt.Println(n[2])   // インデックス2の要素を出力（3）
+	fmt.Println(n[2:4]) // インデックス2から3の範囲を出力（[3 4]）
+	fmt.Println(n[:2])  // インデックス0から1の範囲を出力（[1 2]）
+	fmt.Println(n[2:])  // インデックス2から最後までの範囲を出力（[3 4 5 6]）
+	fmt.Println(n[:])   // スライス全体を出力（[1 2 3 4 5 6]）
 
-	/*
-		// 固定長配列 b を定義し、append を試みる（エラーが発生する）
-		var b [2]int = [2]int{100, 200}
-		b = append(b, 300) // append はスライス専用のため、このコードはコンパイルエラーとなる
-		fmt.Println(b)
-	*/
+	// スライス n のインデックス2の要素を変更
+	n[2] = 100
+	fmt.Println(n) // 変更後のスライスを出力（[1 2 100 4 5 6]）
 
-	// スライス b を定義し、要素を追加
-	var b []int = []int{100, 200}
-	b = append(b, 300) // スライス b に 300 を追加
-	fmt.Println(b)     // スライス b の内容を出力
+	// 二次元スライス board を初期化
+	var board = [][]int{
+		{0, 1, 2},
+		{3, 4, 5},
+		{6, 7, 8},
+	}
+	fmt.Println(board) // 二次元スライスの内容を出力
+
+	// スライス n に要素を追加
+	n = append(n, 100, 200, 300, 400)
+	fmt.Println(n) // 要素追加後のスライスを出力（[1 2 100 4 5 6 100 200 300 400]）
 }
