@@ -95,7 +95,30 @@ package main
 import "fmt"
 
 func main() {
+	// 変数 t と f をそれぞれ bool 型で初期化
 	var t, f bool = true, false
+
+	// 変数の型(%T)と値(%v)、論理値(%t)を出力
+	// t の場合: 型は "bool"、値は "1"、論理値は "true"
 	fmt.Printf("%T %v %t\n", t, 1, t)
+
+	// f の場合: 型は "bool"、値は "0"、論理値は "false"
 	fmt.Printf("%T %v %t\n", f, 0, f)
+
+	// 論理演算子の AND 演算子 "&&" の結果を出力
+	// 両方が true の場合のみ true になる
+	fmt.Println(true && true)   // true
+	fmt.Println(true && false)  // false
+	fmt.Println(false && false) // false
+
+	// 論理演算子の OR 演算子 "||" の結果を出力
+	// 少なくとも一方が true なら true になる
+	fmt.Println(true || true)   // true
+	fmt.Println(true || false)  // true
+	fmt.Println(false || false) // false
+
+	// 論理演算子の NOT 演算子 "!" の結果を出力
+	// true を false に、false を true に反転させる
+	fmt.Println(!true)  // false
+	fmt.Println(!false) // true
 }
